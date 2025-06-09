@@ -35,6 +35,7 @@ export function Home() {
 
     return (
         <div className={"w-full overflow-x-hidden"}>
+            <title>Fillip Husebø</title>
             <motion.div
                 ref={firstSectionRef}
                 className="flex flex-col mx-auto p-10 items-center gap-5 h-screen justify-center"
