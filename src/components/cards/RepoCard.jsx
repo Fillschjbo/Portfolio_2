@@ -30,7 +30,7 @@ export function RepoCard({ name, id, img, description, deployedProject, github }
     };
 
     return (
-        <Link to={deployedProject} className="md:w-1/4 w-1/2 min-w-[200px] relative block overflow-hidden">
+        <Link to={deployedProject} className="md:w-1/4 w-1/2 min-w-[200px] h-70 relative block overflow-hidden">
             <img src={img} alt="repo image" className="rounded-lg w-full h-full object-cover" />
             <motion.div
                 className="absolute bottom-0 left-0 w-full"
