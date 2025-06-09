@@ -1,7 +1,13 @@
+import {repos} from "../../repos.jsx";
+
 export function Home(){
+
+
     return(
-        <>
-            home
-        </>
+        <div>
+            {repos.map((repo) => (
+                <div>{repo.name}</div>
+            ))}
+        </div>
     )
 }
