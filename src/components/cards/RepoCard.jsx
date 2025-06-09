@@ -16,7 +16,7 @@ export function RepoCard({ name, id, img, description, deployedProject, github }
         initial: { y: 0 },
         hover: {
             y: -descriptionHeight,
-            transition: { duration: 0.3, ease: "easeOut" },
+            transition: { duration: 0.3, ease: "easeInOut" },
         },
     };
 
@@ -48,7 +48,7 @@ export function RepoCard({ name, id, img, description, deployedProject, github }
                             <path d="M1 0C1 8.64174 7.94444 10.2482 11 9.97124H1V0Z" stroke="#111319" stroke-width="0.1"/>
                         </svg>
                     </div>
-                    <h2 className="font-Chonburi font-bold font-serif bg-[#111319] p-2 rounded-tr-xl w-[110px] text-center text-white">
+                    <h2 className="font-chonburi bg-[#111319] p-2 rounded-tr-xl w-[110px] text-center text-white">
                         {name}
                     </h2>
                     <div className="absolute bottom-0 left-27">
@@ -65,7 +65,7 @@ export function RepoCard({ name, id, img, description, deployedProject, github }
                     className="bg-[#111319] p-4 mt-2"
                     style={{ zIndex: 10 }}
                 >
-                    <p className="text-white font-Poppins text-xs">{description}</p>
+                    <p className="text-white font-poppins text-xs">{description}</p>
                     <p className="text-blue-400 text-sm mt-2">
                         <a href={github} target="_blank" rel="noopener noreferrer">
                             View on GitHub
