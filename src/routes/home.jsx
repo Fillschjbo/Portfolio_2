@@ -1,12 +1,14 @@
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useContext, useEffect } from "react";
 import { repos } from "../../repos.jsx";
 import { RepoCard } from "../components/cards/RepoCard.jsx";
 import { AiOutlineMail, AiFillPhone, AiFillGithub } from "react-icons/ai";
+import { OutletContext } from "/src/main.jsx";
 
 export function Home() {
     const firstSectionRef = useRef(null);
     const aboutSectionRef = useRef(null);
+    const { setScrollToAbout } = useContext(OutletContext);
 
     const firstSectionInView = useInView(firstSectionRef, { margin: "-50% 0px" });
     const aboutSectionInView = useInView(aboutSectionRef, { margin: "-50% 0px" });
@@ -23,8 +25,16 @@ export function Home() {
     const firstSectionScale = useTransform(firstSectionProgress, [0, 0.5, 1], [0.8, 1.2, 0.8]);
     const aboutSectionScale = useTransform(aboutSectionProgress, [0, 0.5, 1], [0.9, 1.1, 0.9]);
 
+    const scrollToAbout = () => {
+        aboutSectionRef.current?.scrollIntoView({ behavior: "smooth" });
+    };
+
+    useEffect(() => {
+        setScrollToAbout(() => scrollToAbout);
+    }, []);
+
     return (
-        <div>
+        <div className={"w-full overflow-x-hidden"}>
             <motion.div
                 ref={firstSectionRef}
                 className="flex flex-col mx-auto p-10 items-center gap-5 h-screen justify-center"

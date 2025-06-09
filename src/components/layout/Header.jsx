@@ -1,12 +1,14 @@
 import logo from "/src/assets/logo/e5c086be-7cc6-4c40-b216-cad8a2651b23.svg"
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { OutletContext } from "../../main.jsx";
 
 export function Header() {
     const { scrollY } = useScroll();
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
     const threshold = 100;
+    const { scrollToAbout } = useContext(OutletContext);
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         if (latest > lastScrollY && latest > threshold) {
@@ -35,11 +37,14 @@ export function Header() {
                     Fillip Husebø
                 </h1>
             </div>
-            <div className="bg-white p-4 h-full rounded-md flex justify-center items-center">
+            <button
+                onClick={scrollToAbout}
+                className="bg-white p-4 h-full rounded-md flex justify-center items-center hover:bg-gray-100 transition-colors hover:cursor-pointer"
+            >
                 <h2 className="text-black font-poppins font-bold text-[1vw] tracking-wide">
                     Contact Me!
                 </h2>
-            </div>
+            </button>
         </motion.div>
     );
 }
